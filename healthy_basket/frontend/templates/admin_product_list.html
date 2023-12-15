@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Product List</title>
+</head>
+<body>
+    <h1>Admin - Product List</h1>
+    <ul>
+    {% for product in products %}
+        <li>
+            {{ product.name }} - ${{ product.price }}
+            <!-- Include links for editing and deleting products -->
+        </li>
+    {% endfor %}
+    </ul>
+    <!-- Include option to add a new product -->
+</body>
+</html>

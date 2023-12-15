@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Include form fields for user registration -->
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password1" placeholder="Password">
+        <input type="password" name="password2" placeholder="Confirm Password">
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

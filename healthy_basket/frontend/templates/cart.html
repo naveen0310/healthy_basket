@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul>
+    {% for cart_item in cart_items %}
+        <li>
+            {{ cart_item.product.name }}
+            - Quantity: {{ cart_item.quantity }}
+            <!-- Include options to update quantity or remove item -->
+        </li>
+    {% endfor %}
+    </ul>
+    <!-- Include checkout button and further checkout process -->
+</body>
+</html>

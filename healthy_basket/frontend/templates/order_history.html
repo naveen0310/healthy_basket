@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order History</title>
+</head>
+<body>
+    <h1>Order History</h1>
+    <ul>
+    {% for order in user_orders %}
+        <li>
+            Order ID: {{ order.id }}
+            <!-- Include order details and links for further actions -->
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
