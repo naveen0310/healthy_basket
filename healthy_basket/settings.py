@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
     'products',
     'users',
     'carts',
     'orders',
-    'payments',
+    'payments'
 
 ]
 
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'healthy_basket.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "healthy_basket/frontend/templates"],
+        'DIRS': [BASE_DIR / "frontend/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,10 +81,14 @@ WSGI_APPLICATION = 'healthy_basket.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'healthy_basket',
+       'USER': 'postgres',
+       'PASSWORD': 'admin',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
 }
 
 
@@ -121,14 +126,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-
+STATIC_URL = 'frontend/templates/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend/templates/static/",
+   
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.CustomUser'
 
 # ...
 
@@ -136,3 +143,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     # Add any additional authentication backends here
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587  # Change to your email port
+EMAIL_HOST_USER = 'healthy.cartpsl@gmail.com'
+EMAIL_HOST_PASSWORD = 'usynohouqlfnzfyp'
+EMAIL_USE_TLS = True  # Change according to your email settings
+DEFAULT_FROM_EMAIL = 'healthy.cartpsl@gmail.com'  # Change to your email address

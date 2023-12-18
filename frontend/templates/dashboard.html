@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Homepage</title>
+    <style>
+        /* CSS styles for layout (adjust as needed) */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .product {
+            float: left;
+            width: 30%;
+            margin: 1%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h2 {
+            margin-top: 0;
+        }
+        .product p {
+            margin-bottom: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <h2>Featured Products</h2>
+        {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>${{ product.price }}</p>
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

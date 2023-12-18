@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% load static %}
+</head>
+<body>
+    <link href="{% static 'product_detail.css' %}" rel="stylesheet">
+    <section class="product">
+	<div class="product__photo">
+		<div class="photo-container">
+			<div class="photo-main">
+				<div class="controls">
+					<i class="material-icons">share</i>
+					<i class="material-icons">favorite_border</i>
+				</div>
+				<img src="{{ product.image.url }}" alt="{{ product.name }}">
+			</div>
+		</div>
+	</div>
+	<div class="product__info">
+		<div class="title">
+			<h1>{{ product.name }}</h1>
+			
+		</div>
+		<div class="price">
+			₹<span>{{ product.price }}</span>
+		</div>
+		<div class="description">
+			<h3>Description:</h3>
+			{{ product.description }}
+		</div>
+		<button class="buy--btn">ADD TO CART</button>
+	</div>
+</section>
+
+</body>
+</html>
