@@ -85,4 +85,4 @@ def forgot_password(request):
 def dashboard(request):
     products = Product.objects.all()  # Retrieve all products from the database
 
-    return render(request, 'dashboard.html', {'products': products})
+    return render(request, 'dashboard2.html', {'products': products})

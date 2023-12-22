@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -9,7 +9,7 @@ urlpatterns = [
     path('change-password/', views.change_password, name='change_password'),
     path('forgot-password/', views.forgot_password, name='forgot_password'),
     path('dashboard/', views.dashboard, name='dashboard'),
-
+    path('carts/', include('carts.urls')),
 ]
 #Add other user-related URLs as needed
 
